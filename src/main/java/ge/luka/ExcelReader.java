@@ -27,7 +27,7 @@ public class ExcelReader {
     private int destinationIndex;
     private int idIndex;
 
-    private static final int HEADER_ROW_INDEX = 1;
+    private static final int HEADER_ROW_INDEX = 0;
 
     public ExcelReader(String filePath) {
         try {
@@ -123,12 +123,7 @@ public class ExcelReader {
 
     private void setDay(DocumentModel currDayDocument, int dayColumnIndex) {
         XSSFCell dayCell = sheet.getRow(HEADER_ROW_INDEX).getCell(dayColumnIndex);
-        if (dayCell.getCellType().equals(CellType.NUMERIC)) {
-            int numericCellValue = (int) dayCell.getNumericCellValue();
-            currDayDocument.setDay(numericCellValue + "");
-        } else {
-            currDayDocument.setDay(dayCell.toString());
-        }
+        currDayDocument.setDay(dayCell.toString());
     }
 
     private void setClinicName(DocumentModel result, int driverRowIndex) {

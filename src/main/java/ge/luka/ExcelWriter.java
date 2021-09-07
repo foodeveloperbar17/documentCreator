@@ -15,7 +15,7 @@ public class ExcelWriter {
     int rowIndex = 0;
 
     private static final int HEADER_COLUMN_INDEX = 5;
-    private static final String DATE_SUFFIX = ".02.2021";
+    private static final String DATE_SUFFIX = ".2021";
     private XSSFWorkbook xssfWorkbook;
 
     public void writeDocument(List<List<DocumentModel>> allTables, String folderPath) {
